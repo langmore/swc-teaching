@@ -1,0 +1,54 @@
+SQL SELECT and WHERE tutorial
+=============================
+
+## Why should scientists care?
+
+* Being able to select only certain records will speed up and clean up the retreval of information
+* SELECT and WHERE are fundamental operations that will be used whenever you work with databases
+
+
+## Start sqlite3 and create a database
+
+```
+$ sqlite3 /tmp/test.db
+```
+
+This creates an empty database and starts the sqlite3 shell interpreter.  Now let's insert one row.
+
+```
+sqlite3> CREATE table Experiments (Scientist text, Project text, Hours real);
+sqlite3> INSERT into Experiments values('Sofia Kovalevskaya', 'Antigravity', 6.5); 
+```
+
+Check that the row is there with
+
+```
+sqlite3> SELECT * FROM Experiments;
+```
+
+Now insert some more rows (don't be afraid to cut-and-paste)
+```
+sqlite3> INSERT into Experiments values('Sofia Kovalevskaya', 'Teleportation', 11.0);
+
+sqlite3> INSERT into Experiments values('Sofia Kovalevskaya', 'Teleportation', 5.0);
+
+sqlite3> INSERT into Experiments values('Mikhail Lomonosov', 'Antigravity', 4.0);
+
+sqlite3> INSERT into Experiments values('Mikhail Lomonosov', 'Time Travel', -2.0);
+
+sqlite3> INSERT into Experiments values('Dmitri Mendeleev', 'Antigravity', 9.0);
+
+sqlite3> INSERT into Experiments values('Ivan Pavlov', 'Teleportation', 9.0);
+
+sqlite3> INSERT into Experiments values('Ivan Pavlov', 'Time Travel', -7.0);
+```
+
+Look at all rows with 
+
+```
+sqlite3> SELECT * FROM Experiments;
+```
+
+## The basic SELECT statement
+
+
