@@ -50,5 +50,34 @@ sqlite3> SELECT * FROM Experiments;
 ```
 
 ## The basic SELECT statement
+Classic SQL SELECT statement (all-caps is optional) gets items from a table and prints (by default) to stdout.
+
+```
+sqlite3> SELECT Scientist, Hours FROM Experiments;
+```
+
+## The WHERE clause
+
+Allows you to specify conditions on the rows that you will select.  Boolean operators '=', 'AND', 'OR' can be used.
+
+```
+sqlite3> SELECT * FROM Experiments WHERE Scientist = "Ivan Pavlov";
+
+sqlite3> SELECT * FROM Experiments WHERE (Hours > 3) AND (Scientist = "Mikhail Lomonosov");
+```
+
+## Variations
+
+Use AND and OR operators to get all records where either 
+
+* Mikhail Lomonosov worked more than 3 hours
+
+OR
+
+* Ivan Pavlov worked any number of hours
 
 
+Instead of using OR to match one of several values, we can use the IN operator along with a list of values we would like to match. Use this to obtain records where
+
+* The scientist is either Mikhail Lomonosov or Ivan Pavlov
+* Either Mikhail Lomonosov or Ivan Pavlov worked more than 3 hours
