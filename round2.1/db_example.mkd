@@ -10,67 +10,67 @@ SQL SELECT and WHERE tutorial
 ## Start sqlite3 and create a database
 
 ```
-    $ sqlite3 /tmp/test.db
+$ sqlite3 /tmp/test.db
 ```
 
 This creates an empty database and starts the sqlite3 shell interpreter.  Now let's insert one row.
 
 ```
-    sqlite3> CREATE table Experiments (Scientist text, Project text, Hours real);
-    sqlite3> INSERT into Experiments values('Sofia Kovalevskaya', 'Antigravity', 6.5); 
+sqlite3> CREATE table Experiments (Scientist text, Project text, Hours real);
+sqlite3> INSERT into Experiments values('Sofia Kovalevskaya', 'Antigravity', 6.5); 
 ```
 
 Check that the row is there with
 
 ```
-    sqlite3> SELECT * FROM Experiments;
+sqlite3> SELECT * FROM Experiments;
 ```
 
 The interpreter should print out text that looks like:
 
 ```
-    Sofia Kovalevskaya|Antigravity|6.5
+Sofia Kovalevskaya|Antigravity|6.5
 ```
 
 Now insert some more rows (don't be afraid to cut-and-paste)
 
 ```
-    sqlite3> INSERT into Experiments values('Sofia Kovalevskaya', 'Teleportation', 11.0);
-    sqlite3> INSERT into Experiments values('Sofia Kovalevskaya', 'Teleportation', 5.0);
-    sqlite3> INSERT into Experiments values('Mikhail Lomonosov', 'Antigravity', 4.0);
-    sqlite3> INSERT into Experiments values('Mikhail Lomonosov', 'Time Travel', -2.0);
-    sqlite3> INSERT into Experiments values('Dmitri Mendeleev', 'Antigravity', 9.0);
-    sqlite3> INSERT into Experiments values('Ivan Pavlov', 'Teleportation', 9.0);
-    sqlite3> INSERT into Experiments values('Ivan Pavlov', 'Time Travel', -7.0);
+sqlite3> INSERT into Experiments values('Sofia Kovalevskaya', 'Teleportation', 11.0);
+sqlite3> INSERT into Experiments values('Sofia Kovalevskaya', 'Teleportation', 5.0);
+sqlite3> INSERT into Experiments values('Mikhail Lomonosov', 'Antigravity', 4.0);
+sqlite3> INSERT into Experiments values('Mikhail Lomonosov', 'Time Travel', -2.0);
+sqlite3> INSERT into Experiments values('Dmitri Mendeleev', 'Antigravity', 9.0);
+sqlite3> INSERT into Experiments values('Ivan Pavlov', 'Teleportation', 9.0);
+sqlite3> INSERT into Experiments values('Ivan Pavlov', 'Time Travel', -7.0);
 ```
 
 Look at all rows with 
 
 ```
-    sqlite3> SELECT * FROM Experiments;
+sqlite3> SELECT * FROM Experiments;
 
-    Sofia Kovalevskaya|Antigravity|6.5
-    Sofia Kovalevskaya|Teleportation|5.0
-    Mikhail Lomonosov|Antigravity|4.0
-    Mikhail Lomonosov|Time Travel|-2.0
-    Dmitri Mendeleev|Antigravity|9.0
-    Ivan Pavlov|Teleportation|9.0
-    Ivan Pavlov|Time Travel|-7.0
+Sofia Kovalevskaya|Antigravity|6.5
+Sofia Kovalevskaya|Teleportation|5.0
+Mikhail Lomonosov|Antigravity|4.0
+Mikhail Lomonosov|Time Travel|-2.0
+Dmitri Mendeleev|Antigravity|9.0
+Ivan Pavlov|Teleportation|9.0
+Ivan Pavlov|Time Travel|-7.0
 ```
 
 ## The basic SELECT statement
 Classic SQL SELECT statement (all-caps is optional) gets items from a table and prints (by default) to stdout.
 
 ```
-    sqlite3> SELECT Scientist, Hours FROM Experiments;
+sqlite3> SELECT Scientist, Hours FROM Experiments;
 
-    Sofia Kovalevskaya|6.5
-    Sofia Kovalevskaya|5.0
-    Mikhail Lomonosov|4.0
-    Mikhail Lomonosov|-2.0
-    Dmitri Mendeleev|9.0
-    Ivan Pavlov|9.0
-    Ivan Pavlov|-7.0
+Sofia Kovalevskaya|6.5
+Sofia Kovalevskaya|5.0
+Mikhail Lomonosov|4.0
+Mikhail Lomonosov|-2.0
+Dmitri Mendeleev|9.0
+Ivan Pavlov|9.0
+Ivan Pavlov|-7.0
 ```
 
 ## The WHERE clause
@@ -78,14 +78,14 @@ Classic SQL SELECT statement (all-caps is optional) gets items from a table and 
 Allows you to specify conditions on the rows that you will select.  Boolean operators '=', 'AND', 'OR' can be used.
 
 ```
-    sqlite3> SELECT * FROM Experiments WHERE Scientist = "Ivan Pavlov";
+sqlite3> SELECT * FROM Experiments WHERE Scientist = "Ivan Pavlov";
 
-    Ivan Pavlov|Teleportation|9.0
-    Ivan Pavlov|Time Travel|-7.0
+Ivan Pavlov|Teleportation|9.0
+Ivan Pavlov|Time Travel|-7.0
 
-    sqlite3> SELECT * FROM Experiments WHERE (Hours > 3) AND (Scientist = "Mikhail Lomonosov");
+sqlite3> SELECT * FROM Experiments WHERE (Hours > 3) AND (Scientist = "Mikhail Lomonosov");
 
-    Mikhail Lomonosov|Antigravity|4.0
+Mikhail Lomonosov|Antigravity|4.0
 ```
 
 ## Variations
